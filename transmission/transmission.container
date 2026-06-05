@@ -22,7 +22,7 @@ PublishPort=51413:51413/udp
 
 Volume=%h/containers/storage/transmission/config:/config:rw,Z
 Volume=%h/containers/storage/transmission/config:/watch:rw,Z
-Volume=/mnt/nvme/torrents:/data/torrents:rw,z
+Volume=/mnt/ssd/torrents:/data/torrents:rw,z
 
 [Service]
 Restart=on-failure
