@@ -1,0 +1,30 @@
+[Unit]
+Description=Jellystat
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=Jellystat
+Image=ghcr.io/cyfershepard/jellystat:latest
+AutoUpdate=registry
+LogDriver=json-file
+LogOpt=max-size=10mb
+
+EnvironmentFile=jellystat.env
+HealthCmd=none
+
+HostName=jellyfin
+Network=proxy.network
+PublishPort=3000:3000/tcp
+
+Volume=%h/containers/storage/jellystat/data:/backup-data:rw,Z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target
