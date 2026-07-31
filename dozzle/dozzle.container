@@ -10,14 +10,15 @@ AutoUpdate=registry
 SecurityLabelDisable=true
 
 Environment=DOZZLE_ADDR=:8008
-Environment=DOZZLE_ENABLE_ACTIONS=true
-Environment=DOZZLE_HOSTNAME=Podman
+Environment=DOZZLE_AUTH_PROVIDER=forward-proxy
+Environment=DOZZLE_HOSTNAME=homelab
 Environment=DOZZLE_NO_ANALYTICS=true
 
 HostName=dozzle
 Network=proxy.network
 PublishPort=8008:8008/tcp
 
+Volume=%h/containers/storage/dozzle/data:/data:rw,Z
 Volume=%t/podman/podman.sock:/var/run/docker.sock:ro
 
 [Service]

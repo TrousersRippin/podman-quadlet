@@ -1,16 +1,14 @@
 [Unit]
-Description=Filebrowser
+Description=FileBrowser
 Wants=network-online.target
 After=network-online.target local-fs.target
 
 [Container]
 ContainerName=filebrowser
-Image=docker.io/filebrowser/filebrowser:latest
+Image=ghcr.io/gtsteffaniak/filebrowser:latest
 AutoUpdate=registry
 
-Environment=FB_PORT=8005
-Secret=fb_user,type=env,target=FB_USERNAME
-Secret=fb_password,type=env,target=FB_PASSWORD
+EnvironmentFile=filebrowser.env
 
 HealthCmd=none
 
@@ -20,9 +18,10 @@ HostName=filebrowser
 Network=proxy.network
 PublishPort=8005:8005/tcp
 
-Volume=%h/containers/storage/filebrowser/config:/config:rw,Z
-Volume=%h/containers/storage/filebrowser/database:/database:rw,Z
-Volume=/:/srv:rw,z
+Volume=%h/containers/storage/filebrowser/data:/home/filebrowser/data:rw,Z
+Volume=%h/troy:/mnt/home-troy:rw,Z
+Volume=/mnt:/mnt/host-mnt:rw,Z
+Volume=/opt/stacks:/mnt/host-opt:rw,Z
 
 [Service]
 NoNewPrivileges=true
