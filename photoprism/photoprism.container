@@ -1,0 +1,27 @@
+[Unit]
+Description=Photoprism
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=photoprism
+Image=docker.io/photoprism/photoprism:latest
+AutoUpdate=registry
+
+EnvironmentFile=photoprism.env
+
+HostName=photoprism
+Network=proxy.network
+PublishPort=2342:2342/tcp
+
+Volume=%h/containers/storage/photoprism/storage:/photoprism/storage:rw,Z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target
