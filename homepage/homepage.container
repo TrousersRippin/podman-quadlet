@@ -8,13 +8,13 @@ ContainerName=homepage
 Image=docker.io/gethomepage/homepage:latest
 AutoUpdate=registry
 
-EnvironmentFile=homepage.env
+Environment=HOMEPAGE_ALLOWED_HOSTS=*
 
 HealthCmd=none
 
 HostName=homepage
 Network=proxy.network
-PublishPort=3000:3000/tcp
+PublishPort=3003:3000/tcp
 
 Volume=%h/containers/storage/homepage/config:/config:rw,Z
 Volume=%h/containers/storage/homepage/icons:/app/public/icons:rw,Z

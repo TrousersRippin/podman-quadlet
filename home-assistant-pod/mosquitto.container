@@ -12,8 +12,8 @@ AutoUpdate=registry
 UserNS=keep-id:uid=1000,gid=1000
 
 Volume=%h/containers/storage/mosquitto/config:/mosquitto/config:rw,Z
-Volume=%h/containers/storage/mosquitto/config/log:/mosquitto/log:rw,Z
 Volume=%h/containers/storage/mosquitto/data:/mosquitto/data:rw,Z
+Volume=%h/containers/storage/mosquitto/log:/mosquitto/log:rw,Z
 
 [Service]
 NoNewPrivileges=true

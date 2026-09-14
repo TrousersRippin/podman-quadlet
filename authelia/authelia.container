@@ -17,7 +17,7 @@ User=0:0
 
 HostName=authelia
 Network=proxy.network
-PublishPort=9094:9094/tcp
+PublishPort=9091:9091/tcp
 
 Volume=%h/containers/storage/authelia/config:/config:rw,Z
 Volume=%h/containers/storage/authelia/secrets:/run/secrets:ro,Z

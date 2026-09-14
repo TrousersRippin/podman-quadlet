@@ -11,9 +11,9 @@ AutoUpdate=registry
 
 HostName=grafana
 Network=proxy.network
-PublishPort=3333:3333/tcp
+PublishPort=3000:3000/tcp
 
-Volume=%h/containers/storage/grafana/config/grafana.ini:/etc/grafana/grafana.ini:rw,Z
+Volume=%h/containers/storage/grafana/config:/etc/grafana:ro,Z
 Volume=%h/containers/storage/grafana/dashboards:/etc/grafana/dashboards:ro,Z
 Volume=%h/containers/storage/grafana/provisioning:/etc/grafana/provisioning:ro,Z
 Volume=%h/containers/storage/grafana/data:/var/lib/grafana:rw,Z

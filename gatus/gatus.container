@@ -14,7 +14,7 @@ UserNS=keep-id:uid=1000,gid=1000
 
 HostName=gatus
 Network=proxy.network
-PublishPort=8899:8899/tcp
+PublishPort=8081:8080/tcp
 
 Volume=%h/containers/storage/gatus/config:/config:ro,Z
 

@@ -16,7 +16,7 @@ AddCapability=NET_RAW
 
 HostName=transmission
 Network=proxy.network
-PublishPort=9091:9091/tcp
+PublishPort=9092:9091/tcp
 PublishPort=51413:51413/tcp
 PublishPort=51413:51413/udp
 
